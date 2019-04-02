@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import Animate from './animate.custom.css';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 
 export default class StepWizard extends Component {
@@ -159,7 +159,7 @@ export default class StepWizard extends Component {
         });
 
         return (
-            <div className={styles['step-wizard']}>
+            <div className={this.props.className}>
                 {this.props.nav && React.cloneElement(this.props.nav, props)}
                 <div className={styles['step-wrapper']}>
                     {childrenWithProps}
@@ -171,6 +171,7 @@ export default class StepWizard extends Component {
 
 StepWizard.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     initialStep: PropTypes.number,
     isHashEnabled: PropTypes.bool,
     isLazyMount: PropTypes.bool,
@@ -181,6 +182,7 @@ StepWizard.propTypes = {
 
 StepWizard.defaultProps = {
     children: [],
+    className: '',
     initialStep: 1,
     isHashEnabled: false,
     isLazyMount: false,
